@@ -7,7 +7,7 @@ using namespace std;
 
 BTREE::BTREE()
 {
-              //root is created
+              //root is created and contents are initialized
 	      root = new node;
 	      root->isLeaf = true;
 	      root->numKeys = 0;
@@ -22,7 +22,7 @@ void BTREE::insertNonFull(node* subTree,int k,node* pointer)
 	cout<<"@: "<<"insert in nonfull called with "<<k<<"on a non full node"<<endl;
 	for(i=0;i<subTree->numKeys && subTree->key[i]<k; i++);
 	//i is the index of insertion
-	//shift the values 
+	//shift the values accordingly
 	 for(int j=subTree->numKeys-1;j>=i;j--) subTree->key[j+1] = subTree->key[j];
 	 if(pointer){
 	                 for(int j=subTree->numKeys;j>i;j--) subTree->child[j+1] = subTree->child[j]; 	
@@ -41,11 +41,11 @@ void BTREE::insert_with_query(node* subTree, int k)
           	cout<<"not allowed to insert duplicates"<<endl;
           	return;
           }
-          //other wise key[i]> k
+          //other wise key[i]>  k 
           if(!subTree->isLeaf) insert_with_query(subTree->child[i],k);
           else {
-          	//now node subTree is leaf node	
-                  	iterative_accomodate(subTree,k, NULL);
+          	//now node  subTree is leaf node	
+                  	iterative_accomodate (subTree,k, NULL);
           }
 }
 
