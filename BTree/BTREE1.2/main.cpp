@@ -1,10 +1,12 @@
 #include <iostream>
+//including the header files
 #include "node.h"
 #include "btree.h"
 using namespace std;
 int main()
 {
-              BTREE* b = new BTREE;
+              //creating a new tree
+               BTREE* b = new BTREE;
 
               // testing the software
               int val;
