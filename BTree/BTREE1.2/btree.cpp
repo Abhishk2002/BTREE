@@ -1,5 +1,6 @@
 #include "btree.h"
 #include "node.h"
+#include <assert.h>
 #include <iostream>
 #include <bits/stdc++.h>
 
@@ -250,7 +251,7 @@ void BTREE::postOrderTrav()
 
 void BTREE::insertKey(int k)
 {
-            insert_with_query(root,k);
+            insert_with_query(root,k); //call insert with query
 }
 int BTREE::height()
 {
